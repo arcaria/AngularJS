@@ -1,0 +1,20 @@
+<p>Las opciones representan archivos que se mostraran al seleccionarlos usando el servicio $http</p>
+<div ng-controller="e3-HttpController">
+  <p>{{ var + " $HTTP"}}</p>
+  <select ng-model="variable">
+    <option value="recurso">Recurso</option>
+    <option value="recurso2">Recurso 2</option>
+    <option value="Lista de personas">Lista de personas</option>
+  </select>
+  <p> Data: {{primera}} </p>
+  <table ng-show="mostrar">
+    <tr>
+      <td>Name</td>
+      <td>Country</td>
+    </tr>
+    <tr ng-repeat=" x in myData ">
+      <td>{{x.Name}}</td>
+      <td>{{x.Country}}</td>
+    </tr>
+  </table>
+</div>
