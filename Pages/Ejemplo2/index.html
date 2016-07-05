@@ -1,0 +1,24 @@
+<p>Ejemplo de lista con dos elementos, filtros y búsquedas. Al hacer click sobre uno de los elementos de la lista se ordenan de acuerdo
+a la columna seleccionada. Es posible agregar elementos asi como borrarlos. La caja de busqueda revisa ambas propiedades de cada elemento
+de la lista y muestra los resultados encontrados en la tabla inferior.</p>
+<div ng-controller="e2-FilterController" ng-init="alg=[{aa:'hola',bb:15},{aa:'casa',bb:42},{aa:'techo',bb:5},{aa:'rosa',bb:34}]">
+  <p>{{ var + " ng-repeat y agregar/eliminar"}}</p>
+  Nuevo: <br>
+  <input type="text" placeholder="Nuevo Elemento" ng-model="aa" required/>
+  <input type="number" placeholder="Nuevo Numero" ng-model="bb" required/>
+  <button ng-click="add()">Agregar</button>
+  <p> Busqueda: <input type="text" ng-model="quest"/> </p>
+  <ul>
+    <li ng-repeat="x in alg | orderBy:ord | filter: quest">
+      <span ng-click="ordenar('aa')"> {{ x.aa }} </span> <span ng-click="ordenar('bb')"> {{ x.bb }} </span>
+      <button ng-click="done(x)">X</button>
+    </li>
+  </ul>
+</div>
+
+
+<div ng-controller="e2-Filter2Controller">
+<p>Filtro personalizado (cambia las letras en las casillas pares a mayusculas)</p>
+  <input type="text" placeholder="Cambiar" ng-model="change"/>
+  {{change | myFormat}}
+</div>
