@@ -1,0 +1,23 @@
+    <p>2-way binding: Los cambios en la vista se reflejan en el modelo y los cambios en el modelo se reflejan en la vista</p>
+    <div ng-controller="e1-TwoWayController">
+      <p><span> {{ var }} </span></p>
+      <input type="text" ng-model="message">
+      <input type="text" ng-model="a">
+      <span> {{ a }} </span>
+      <span> {{ message }} </span>
+    </div>
+    <div ng-controller="e1-TodoController">
+      <p><span> {{ var }} </span></p>
+      <ul class="add-todo">
+          <li>
+              <input type="text" placeholder="New Todo" ng-model="newTodo" ng-keyup="add($event)">
+              <button ng-click="add2()">Add</button>
+          </li>
+      </ul>
+      <ul ng-repeat="todo in todos track by $index">
+        <li>
+          <span> {{ todo }} </span>
+          <button ng-click="done(todo)">Done</button>
+        </li>
+      </ul>
+    </div>
